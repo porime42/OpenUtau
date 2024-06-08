@@ -512,6 +512,15 @@ namespace OpenUtau.App.Views {
             }
         }
 
+        async void OnMenuExportMusicXML(object sender, RoutedEventArgs e) {
+            var project = DocManager.Inst.Project;
+            var file = await FilePicker.SaveFileAboutProject(
+                this, "menu.file.exportmusicxml", FilePicker.MUSICXML);
+            if (!string.IsNullOrEmpty(file)) {
+                MusicXML.Save(file, project);
+            }
+        }
+
         private async Task<bool> WarnToSave(UProject project) {
             if (string.IsNullOrEmpty(project.FilePath)) {
                 await MessageBox.Show(

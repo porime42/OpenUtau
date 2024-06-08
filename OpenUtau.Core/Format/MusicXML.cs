@@ -132,5 +132,9 @@ namespace OpenUtau.Core.Format
                 return score;
             }
         }
+
+        static public void Save(string filePath, UProject project)
+        {
+        }
     }
 }
